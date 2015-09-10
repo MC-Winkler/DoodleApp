@@ -14,17 +14,11 @@ public class Dot {
     private int penWidth;
     private Paint paint;
 
-    public Dot(float x, float y, int penWidth) {
+    public Dot(float x, float y, int penWidth, int alpha, int red, int green, int blue) {
         this.x = x;
         this.y = y;
 
         this.penWidth = penWidth;
-
-        // random color
-        int red = (int) (Math.random() * 256);
-        int green = (int) (Math.random() * 256);
-        int blue = (int) (Math.random() * 256);
-        int alpha = (int) (Math.random() * 256);
         paint = new Paint();
         paint.setARGB(alpha, red, green, blue);
     }

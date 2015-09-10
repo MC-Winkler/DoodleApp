@@ -22,7 +22,7 @@ public class DoodleView extends View {
     public final static int DEFAULT_BLUE = 255;
     public final static int DEFAULT_ALPHA = 255;
 
-    private ArrayList<Line> theLines;
+    private ArrayList<Dot> theDots;
     private int penWidth = DEFAULT_WIDTH;
     private int red = DEFAULT_RED;
     private int green = DEFAULT_GREEN;
@@ -35,9 +35,10 @@ public class DoodleView extends View {
 
     public DoodleView(Context context, AttributeSet attrs) {
         super(context, attrs);
-        theLines = new ArrayList<Line>();
+        theDots = new ArrayList<Dot>();
     }
 
+    /*
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         if (event.getAction() == MotionEvent.ACTION_DOWN) {
@@ -55,6 +56,7 @@ public class DoodleView extends View {
         return true;
     }
 
+
     @Override
     protected void onDraw(Canvas canvas) {
 
@@ -63,6 +65,24 @@ public class DoodleView extends View {
         }
         invalidate();
     }
+
+    */
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        theDots.add(new Dot(event.getX(), event.getY(), penWidth, alpha, red, green, blue));
+        return true;
+    }
+
+    @Override
+    protected void onDraw(Canvas canvas) {
+
+        for (Dot dot : theDots) {
+            dot.draw(canvas);
+        }
+        invalidate();
+    }
+
 
     public void setRGBRed (int red) {
         this.red = red;
