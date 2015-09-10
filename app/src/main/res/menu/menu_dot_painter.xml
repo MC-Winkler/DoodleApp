@@ -5,6 +5,12 @@
     <item
         android:id="@+id/action_setwidth"
         android:title="@string/action_setwidth"
-        android:orderInCategory="100"
+        android:orderInCategory="1"
+        android:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_setcolor"
+        android:title="@string/action_setcolor"
+        android:orderInCategory="2"
         android:showAsAction="never" />
 </menu>

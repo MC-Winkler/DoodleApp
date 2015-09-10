@@ -20,6 +20,15 @@ public class SetColorDialogActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_set_color_dialog);
+        redSeekBar = (SeekBar) findViewById(R.id.redSeekBar);
+        greenSeekBar = (SeekBar) findViewById(R.id.greenSeekBar);
+        blueSeekBar = (SeekBar) findViewById(R.id.blueSeekBar);
+        alphaSeekBar = (SeekBar) findViewById(R.id.alphaSeekBar);
+        Intent fromMain = getIntent();
+        alphaSeekBar.setProgress(fromMain.getIntExtra("rgb_alpha", 0));
+        redSeekBar.setProgress(fromMain.getIntExtra("rgb_red", 0));
+        greenSeekBar.setProgress(fromMain.getIntExtra("rgb_green", 0));
+        blueSeekBar.setProgress(fromMain.getIntExtra("rgb_blue", 0));
     }
 
     @Override
@@ -45,10 +54,13 @@ public class SetColorDialogActivity extends Activity {
     }
 
     public void onSetColorClick (View view) {
-        redSeekBar = (SeekBar) findViewById(R.id.redSeekBar);
-        greenSeekBar = (SeekBar) findViewById(R.id.greenSeekBar);
-        blueSeekBar = (SeekBar) findViewById(R.id.blueSeekBar);
-        alphaSeekBar = (SeekBar) findViewById(R.id.alphaSeekBar);
-        Intent colorData = new Intent()
+        Intent colorData = new Intent();
+        colorData.putExtra("rgb_red", redSeekBar.getProgress());
+        colorData.putExtra("rgb_green", greenSeekBar.getProgress());
+        colorData.putExtra("rgb_blue", blueSeekBar.getProgress());
+        colorData.putExtra("rgb_alpha", alphaSeekBar.getProgress());
+        setResult(RESULT_OK, colorData);
+        finish();
+
     }
 }
