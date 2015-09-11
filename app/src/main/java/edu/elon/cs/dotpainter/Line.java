@@ -17,6 +17,7 @@ public class Line {
         this.y1 = y1;
         paint = new Paint();
         paint.setARGB(alpha, red, green, blue);
+        paint.setStrokeCap(Paint.Cap.ROUND);
         paint.setStrokeWidth(penWidth);
     }
 
