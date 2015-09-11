@@ -15,15 +15,15 @@ public class SetWidthDialogActivity extends Activity {
 
     private SeekBar seekBar;
     private ImageView imageView;
+    Intent data;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_set_width_dialog);
 
-        Intent data = getIntent();
+        data = getIntent();
         int width = data.getIntExtra("width", DoodleView.DEFAULT_WIDTH);
-
         seekBar = (SeekBar) findViewById(R.id.seekbar);
         seekBar.setProgress(width);
         seekBar.setOnSeekBarChangeListener(seekBarListener);

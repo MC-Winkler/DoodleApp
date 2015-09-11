@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 /**
  * Main activity for the Dot Painter.
@@ -42,9 +43,13 @@ public class DotPainterActivity extends Activity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_setwidth) {
-            // start the Set Width dialog - pass the current pen width
+            // start the Set Width dialog - pass the current pen width + current rgba values
             Intent intent = new Intent(this, SetWidthDialogActivity.class);
             intent.putExtra("width", doodleView.getPenWidth());
+            intent.putExtra("rgb_alpha", doodleView.getRGBAlpha());
+            intent.putExtra("rgb_red", doodleView.getRGBRed());
+            intent.putExtra("rgb_green", doodleView.getRGBGreen());
+            intent.putExtra("rgb_blue", doodleView.getRGBBlue());
             startActivityForResult(intent, WIDTH_DIALOG);
             return true;
         }
@@ -83,5 +88,9 @@ public class DotPainterActivity extends Activity {
                 doodleView.setRGBBlue(blue);
             }
         }
+    }
+
+    public void onClearClick(View view) {
+        doodleView.clearLines();
     }
 }

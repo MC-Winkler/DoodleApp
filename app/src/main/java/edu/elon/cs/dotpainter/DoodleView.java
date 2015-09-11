@@ -66,23 +66,10 @@ public class DoodleView extends View {
         invalidate();
     }
 
-
-/*
-    @Override
-    public boolean onTouchEvent(MotionEvent event) {
-        theDots.add(new Dot(event.getX(), event.getY(), penWidth, alpha, red, green, blue));
-        return true;
+    public void clearLines (){
+        theLines.clear();
     }
 
-    @Override
-    protected void onDraw(Canvas canvas) {
-
-        for (Dot dot : theDots) {
-            dot.draw(canvas);
-        }
-        invalidate();
-    }
-*/
 
     public void setRGBRed (int red) {
         this.red = red;

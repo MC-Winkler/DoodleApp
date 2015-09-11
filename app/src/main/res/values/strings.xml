@@ -9,8 +9,9 @@
     <string name="title_activity_set_color_dialog">Set Color</string>
     <string name="cancel_label">Cancel</string>
     <string name="hello_world">Hello world!</string>
-    <string name="red">red</string>
-    <string name="green">green</string>
-    <string name="blue">blue</string>
-    <string name="alpha">alpha</string>
+    <string name="red">Red</string>
+    <string name="green">Green</string>
+    <string name="blue">Blue</string>
+    <string name="alpha">Alpha</string>
+    <string name="clear">Clear Screen</string>
 </resources>

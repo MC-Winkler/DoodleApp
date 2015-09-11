@@ -40,6 +40,8 @@ public class SetColorDialogActivity extends Activity implements SeekBar.OnSeekBa
         greenSeekBar.setOnSeekBarChangeListener(this);
         blueSeekBar.setOnSeekBarChangeListener(this);
         alphaSeekBar.setOnSeekBarChangeListener(this);
+
+        colorDisplay.setBackgroundColor(Color.argb(alphaSeekBar.getProgress(), redSeekBar.getProgress(), greenSeekBar.getProgress(), blueSeekBar.getProgress()));
     }
 
     @Override
