@@ -8,9 +8,11 @@ import android.view.MenuItem;
 import android.view.View;
 
 /**
- * Main activity for the Dot Painter.
+ * Main activity for the Doodle App.
  *
  * @author J. Hollingsworth
+ * Modified by Michael Winkler & Rachel McGovern
+ * 9/11/15
  */
 public class DotPainterActivity extends Activity {
 
@@ -78,6 +80,7 @@ public class DotPainterActivity extends Activity {
         }
         else if (requestCode == COLOR_DIALOG) {
             if (resultCode == RESULT_OK) {
+                //get the new color and pass it to the DoodleView
                 int red = data.getIntExtra("rgb_red", doodleView.getRGBRed());
                 int green = data.getIntExtra("rgb_green", doodleView.getRGBBlue());
                 int blue = data.getIntExtra("rgb_blue", doodleView.getRGBGreen());
@@ -91,6 +94,8 @@ public class DotPainterActivity extends Activity {
     }
 
     public void onClearClick(View view) {
+        //When the user clicks the clear screen button, tells the DoodleView to call its
+        //clearLines method
         doodleView.clearLines();
     }
 }

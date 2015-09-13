@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Dot Painter</string>
+    <string name="app_name">Doodle</string>
     <string name="on_set_label">Set Color</string>
     <string name="ok_label">OK</string>
     <string name="action_setwidth">Set Width</string>

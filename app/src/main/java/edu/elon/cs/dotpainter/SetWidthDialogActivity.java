@@ -11,6 +11,13 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.SeekBar;
 
+/**
+ * Allow the user to choose a color for drawing, and show the current color in real time.
+ *
+ * @author J. Hollingsworth and CSC 303 - Fall 2015
+ * 9/11/15
+ */
+
 public class SetWidthDialogActivity extends Activity {
 
     private SeekBar seekBar;

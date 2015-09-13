@@ -9,6 +9,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.SeekBar;
 
+/*
+@author Michael Winkler and Rachel McGovern
+9/11/15
+ */
 
 public class SetColorDialogActivity extends Activity implements SeekBar.OnSeekBarChangeListener {
 
@@ -31,16 +35,21 @@ public class SetColorDialogActivity extends Activity implements SeekBar.OnSeekBa
 
         Intent fromMain = getIntent();
 
+        //Initialize the seekbars to their positions from the last time the user opened the
+        //setColorDialogActivity
         alphaSeekBar.setProgress(fromMain.getIntExtra("rgb_alpha", 0));
         redSeekBar.setProgress(fromMain.getIntExtra("rgb_red", 0));
         greenSeekBar.setProgress(fromMain.getIntExtra("rgb_green", 0));
         blueSeekBar.setProgress(fromMain.getIntExtra("rgb_blue", 0));
 
+        //Set the activity object as a listener for the four seekbars
         redSeekBar.setOnSeekBarChangeListener(this);
         greenSeekBar.setOnSeekBarChangeListener(this);
         blueSeekBar.setOnSeekBarChangeListener(this);
         alphaSeekBar.setOnSeekBarChangeListener(this);
 
+        //Initialize the view that will display the current color as defined by the seekbars to the
+        //correct color
         colorDisplay.setBackgroundColor(Color.argb(alphaSeekBar.getProgress(), redSeekBar.getProgress(), greenSeekBar.getProgress(), blueSeekBar.getProgress()));
     }
 
@@ -67,6 +76,9 @@ public class SetColorDialogActivity extends Activity implements SeekBar.OnSeekBa
     }
 
     public void onSetColorClick (View view) {
+        //When the user clicks the set color button, get the current values from the rgba seekbars
+        //and put them in an intent, then send that intent back to DotPainterActivity by passing
+        //it into setResult and finishing
         Intent colorData = new Intent();
         colorData.putExtra("rgb_red", redSeekBar.getProgress());
         colorData.putExtra("rgb_green", greenSeekBar.getProgress());
@@ -77,7 +89,10 @@ public class SetColorDialogActivity extends Activity implements SeekBar.OnSeekBa
 
     }
 
+    @Override
     public void onProgressChanged (SeekBar seekbar, int progress, boolean fromUser){
+        //When the user moves the slider on a seekbar, check which seekbar was changed and then
+        //update the color view to display the new current color
         if (seekbar == alphaSeekBar){
             colorDisplay.setBackgroundColor(Color.argb(progress, redSeekBar.getProgress(), greenSeekBar.getProgress(), blueSeekBar.getProgress()));
         }
@@ -93,9 +108,15 @@ public class SetColorDialogActivity extends Activity implements SeekBar.OnSeekBa
 
     }
 
+    //had to override these methods as they're part of the SeekBar.OnSeekBarChangeLister interface,
+    //but don't use them
+    @Override
     public void onStopTrackingTouch (SeekBar seekbar){
     }
 
+    @Override
     public void onStartTrackingTouch (SeekBar seekbar){
     }
+
+
 }

@@ -4,8 +4,11 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 
 /**
- * Created by mwinkler3 on 9/10/2015.
+ * @author J. Hollingsworth and CSC 303 - Fall 2015
+ * Modified by Michael Winkler and Rachel McGovern
+ * 9/11/15
  */
+
 public class Line {
     private float x0, y0, x1, y1;
     private Paint paint;

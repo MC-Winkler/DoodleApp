@@ -10,10 +10,13 @@ import android.view.View;
 import java.util.ArrayList;
 
 /**
- * Draw dots to the screen on touches.
+ * Draw lines to the screen on touches.
  *
  * @author J. Hollingsworth and CSC 303 - Fall 2015
+ * Modified by Michael Winkler and Rachel McGovern
+ * 9/11/15
  */
+
 public class DoodleView extends View {
 
     public final static int DEFAULT_WIDTH = 25;
@@ -41,6 +44,10 @@ public class DoodleView extends View {
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
+        //When the user touches the screen, check if the action was a touch down action or move action.
+        //If it was a touch down action, store the location of the touch as the first (x,y) coordinate
+        //of a future line. If it was a move action, get the coordinates of that move action and use
+        //them together with the previous pair of (x,y) coordinates to create a new line
         if (event.getAction() == MotionEvent.ACTION_DOWN) {
             x1 = event.getX();
             y1 = event.getY();
@@ -67,10 +74,12 @@ public class DoodleView extends View {
     }
 
     public void clearLines (){
+        //Clears the screen by removing all lines from the theLines arrayList.
         theLines.clear();
     }
 
 
+    //getters and setters
     public void setRGBRed (int red) {
         this.red = red;
     }
@@ -102,8 +111,6 @@ public class DoodleView extends View {
     public int getRGBAlpha () {
         return alpha;
     }
-
-
 
     public void setPenWidth(int penWidth) {
         this.penWidth = penWidth;
